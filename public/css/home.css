@@ -1,0 +1,90 @@
+.top-story-card {
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.top-story-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.top-story-card, .side-news-card {
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.top-story-card:hover, .side-news-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.border-divider {
+    position: relative;
+    text-align: center;
+}
+
+.border-divider::before,
+.border-divider::after {
+    content: "";
+    display: block;
+    width: 600px; 
+    height: 1px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)); 
+    margin: 0 auto;
+}
+
+.border-divider::before {
+    margin-bottom: 20px; 
+}
+
+.border-divider::after {
+    margin-top: 20px;
+}
+
+.text-shadow-xl {
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+} 
+
+
+.gallery-item {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Ensure it takes the full height from the div */
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+}
+
+/* Hover Effect */
+.gallery-item:hover img {
+    transform: scale(1.1); /* No need for translate, since it's already centered */
+    filter: brightness(80%);
+}
+
+.grid > .grid > div {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.grid > .grid > div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.grid > .grid > div img {
+    transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+}
+
+.grid > .grid > div:hover img {
+    transform: scale(1.1);
+    filter: brightness(80%);
+}
+
+
+
