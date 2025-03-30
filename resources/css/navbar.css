@@ -1,0 +1,41 @@
+.header-custom {
+    padding: 20px 0;
+}
+
+.navbar-custom {
+    padding: 10px 0;
+}
+
+
+@font-face {
+    font-family: 'Dax Regular';
+    src: url('../fonts/Dax\ Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Dax Italic';
+    src: url('../fonts/Dax\ Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+  
+.dax-regular {
+    font-family: 'Dax Regular', serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.dax-italic {
+    font-family: 'Dax Italic', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+  }
+
+.shrikhand-regular {
+    font-family: "Shrikhand", serif;
+    font-weight: 400;
+    font-style: normal;
+  }

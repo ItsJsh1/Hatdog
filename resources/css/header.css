@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Dax Regular';
+  src: url('./fonts/Dax Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.dax-regular {
+  font-family: 'Dax Regular', serif;
+  font-weight: 400;
+  font-style: normal;
+}

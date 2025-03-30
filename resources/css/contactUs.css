@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Fs Elliot ProHeavy';
+    src: url('../fonts/Fs Elliot ProHeavy.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .fs-elliot {
+    font-family: 'Fs Elliot ProHeavy', serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .shrikhand-regular {
+    font-family: "Shrikhand", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
