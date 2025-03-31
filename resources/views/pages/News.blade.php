@@ -9,5 +9,5 @@
         <h1 class="text-[#132080] text-4xl font-extrabold tracking-wider sm:text-5xl">ON THE AIR!</h1>
     </div>
 </section>
-@include('partials.Pnews')
+@include('partials.Pnews', ['featuredNews' => $featuredNews, 'recentNews' => $recentNews, 'pastNews' => $pastNews])
 @endsection

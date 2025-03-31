@@ -103,9 +103,9 @@
 <!-- END OF INTRODUCTION SECTION -->
  
 <!-- START OF NEWS SECTION -->
-<div class="bg-white w-full opacity-0 scale-90 transition-all duration-[2000ms] ease-out" id="news-section">
+<div class="bg-white w-full transition-all duration-[2000ms] ease-out" id="news-section">
         <section id="news-section" class="max-w-7xl mx-auto p-4">
-            @include('partials.Pnews')
+          @include('partials.Pnews', ['featuredNews' => $featuredNews, 'recentNews' => $recentNews, 'pastNews' => $pastNews])
         </section>
     </div>
 <!-- END OF NEWS SECTION -->

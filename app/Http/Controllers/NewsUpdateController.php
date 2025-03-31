@@ -2,28 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\NewsUpdate;
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class NewsUpdateController extends Controller
 {
+    // public function index()
+    // {
+    //     $featuredNews = Article::latest()->first();
+    //     $recentNews = Article::recent()->get();
+    //     $pastNews = Article::past()->get();
+
+    //     return view('pages.News', compact('featuredNews', 'recentNews', 'pastNews'));
+    // }   
+    
     public function index()
     {
-        // Get latest news for featured section
-        $featuredNews = NewsUpdate::latest('created_at')->first();
+        // Ensure the latest article is used as the featured one
+        $featuredNews = Article::orderBy('id', 'desc')->first();
 
-        // Get 5 side news excluding featured story
-        $recentNews = NewsUpdate::where('id', '!=', $featuredNews->id ?? null)
-                            ->latest('created_at')
-                            ->take(5)
-                            ->get();
+        // Get recent news by excluding the first one
+        $recentNews = Article::orderBy('id', 'desc')->where('id', '!=', $featuredNews->id)->limit(5)->get();
 
-        // Get past news excluding featured and 5 side news
-        $pastNews = NewsUpdate::where('id', '!=', $featuredNews->id ?? null)
-                          ->orderBy('created_at', 'desc')
-                          ->skip(5)
-                          ->take(10)
-                          ->get();
+        // Get past news by excluding featured and recent news
+        $excludedIds = $recentNews->pluck('id')->toArray();
+        $excludedIds[] = $featuredNews->id;
+
+        $pastNews = Article::orderBy('id', 'desc')->whereNotIn('id', $excludedIds)->get();
 
         return view('pages.News', compact('featuredNews', 'recentNews', 'pastNews'));
     }
