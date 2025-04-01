@@ -12,8 +12,10 @@ class Article extends Model
     protected $fillable = [
         'title',
         'image',
-        'description',
-        'author'
+        'content',
+        'author',
+        'user_id',
+        'status'
     ];
 
     public function scopeRecent($query, $limit = 5)

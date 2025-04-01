@@ -28,7 +28,10 @@ class ImportCommunityImages extends Command
             // Check if the image already exists in the database
             if (!DB::table('communities')->where('image', $filename)->exists()) {
                 DB::table('communities')->insert([
+                    'content' => $filename,
                     'image' => $filename,
+                    'user_id' => 1,
+                    'status' => 1
                 ]);
 
                 $this->info("Imported: $filename");

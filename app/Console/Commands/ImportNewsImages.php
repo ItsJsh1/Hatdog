@@ -28,9 +28,11 @@ class ImportNewsImages extends Command
             if (!Article::where('image', $filename)->exists()) {
                 Article::create([
                     'title' => pathinfo($filename, PATHINFO_FILENAME),
-                    'description' => 'Auto-generated description for ' . $filename,
-                    'author' => 'System',
+                    'author' => 'Jay',
+                    'content' => 'Auto-generated description for ' . $filename,
                     'image' => $filename,
+                    'user_id' => 1,
+                    'status' => '1'
                 ]);
 
                 $this->info("Imported: $filename");

@@ -7,55 +7,20 @@
 <div class="relative w-full h-screen">
   <div id="custom-carousel" class="absolute w-full h-full" data-carousel="slide">
     <div class="relative w-full h-full overflow-hidden">
-      <div class="hidden duration-700 ease-in-out relative w-full h-full" data-carousel-item>
+      @foreach($carouselImages as $index => $image)
+      <div class="{{ $index === 0 ? '' : 'hidden' }} duration-700 ease-in-out relative w-full h-full" data-carousel-item>
         <div class="relative w-full h-full">
-        <img src="{{ asset('images/home/carousel/MainLogo.png') }}" class="absolute w-full h-full object-cover z-0" alt="Image 1">
-          <div class="absolute inset-0 z-10"></div>
+          <img src="{{ asset('storage/carousel/' . $image->image) }}" class="absolute w-full h-full object-cover z-0" alt="Carousel Image {{ $index + 1 }}">
+          <div class="absolute inset-0 bg-black opacity-30 z-10"></div>
         </div>
-
-        <div class="absolute bottom-80 left-40 text-white z-20">
-          <h1 class="text-5xl font-extrabold text-[#5E6FFB] shrikhand-regular">8th ANNIVERSARY</h1>
-          <p class="mt-2 text-lg max-w-md text-justify">
-              Join us as we mark 8 years of advancing radio engineering and communication technologies. Together, we've built a
-              dynamic community of professionals, students, and enthusiasts shaping the future of the industry.
-          </p>
+        <div class="absolute bottom-20 left-20 text-white z-20">
+          <a href="#" class="mt-4 inline-block text-sm font-extrabold">LEARN MORE</a>
+        </div>
       </div>
+      @endforeach
     </div>
-      
-
-      <!-- MAIN BANNER 1 -->
-      <div class="hidden duration-700 ease-in-out relative w-full h-full" data-carousel-item>
-        <div class="relative w-full h-full">
-          <img src="{{ asset('images/home/carousel/Events1.png') }}" class="absolute w-full h-full object-cover z-0" alt="Image 1">
-          <div class="absolute inset-0 bg-black opacity-30 z-10"></div>
-        </div>
-        <div class="absolute bottom-20 left-20 text-white z-20">
-          <a href="#" class="mt-4 inline-block text-sm font-extrabold">LEARN MORE</a>
-        </div>
-      </div>
-
-      <!-- MAIN BANNER 2 -->
-      <div class="hidden duration-700 ease-in-out relative w-full h-full" data-carousel-item>
-        <div class="relative w-full h-full">
-          <img src="{{ asset('images/home/carousel/MainC4.png') }}" class="absolute w-full h-full object-cover z-0" alt="Image 1">
-          <div class="absolute inset-0 bg-black opacity-30 z-10"></div>
-        </div>
-        <div class="absolute bottom-20 left-20 text-white z-20">
-          <a href="#" class="mt-4 inline-block text-sm font-extrabold">LEARN MORE</a>
-        </div>
-      </div>
-
-       <!-- MAIN BANNER 3 -->
-      <div class="hidden duration-700 ease-in-out relative w-full h-full" data-carousel-item>
-        <div class="relative w-full h-full">
-          <img src="{{ asset('images/home/carousel/MainC5.png') }}" class="absolute w-full h-full object-cover z-0" alt="Image 1">
-          <div class="absolute inset-0 bg-black opacity-30 z-10"></div>
-        </div>
-        <div class="absolute bottom-20 left-20 text-white z-20">
-          <a href="#" class="mt-4 inline-block text-sm font-extrabold">LEARN MORE</a>
-        </div>
-      </div>
-    </div>
+  </div>
+</div>
 
     <!-- Navigation Buttons -->
     <div class="absolute bottom-80 right-80 text-white z-30">
@@ -158,10 +123,18 @@
 <div class="bg-white w-full opacity-0 scale-90 transition-all duration-[2000ms] ease-out border-divider" id="events-section">
 
         <section id="events-section" class="max-w-7xl mx-auto p-4">
-        @include('partials.Pevents')
+          @include('partials.Pevents')
         </section>
     </div>
 <!-- END OF EVENTS SECTION -->
+
+<!-- START OF COMMUNITY SECTION -->
+    <div class="bg-white w-full transition-all duration-[2000ms] ease-out" id="community-section">
+        <section id="community-section" class="max-w-7xl mx-auto p-4">
+          @include('partials.pcommunity', ['images' => $images])
+        </section>
+    </div>
+<!-- END OF NEWS SECTION -->
 
 <!-- REC ACCORDION SECTION -->
 <section id="accordion-section" class="bg-white py-12 opacity-0 scale-90 transition-all duration-[2000ms] ease-out">
